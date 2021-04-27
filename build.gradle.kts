@@ -36,6 +36,8 @@ subprojects {
         }
     }
 
+
+
     apply<JavaPlugin>()
 
     configure<JavaPluginConvention> {
@@ -44,6 +46,17 @@ subprojects {
     }
 
     tasks {
+
+
+        withType<Jar> {
+            doLast {
+                copy {
+                    from("./build/libs/")
+                    into("../release/")
+                }
+            }
+        }
+
         withType<JavaCompile> {
             options.encoding = "UTF-8"
         }
@@ -53,6 +66,11 @@ subprojects {
             isReproducibleFileOrder = true
             dirMode = 493
             fileMode = 420
+        }
+
+        register<Copy>("copyDeps") {
+            into("./build/deps/")
+            from(configurations["runtimeClasspath"])
         }
     }
 }

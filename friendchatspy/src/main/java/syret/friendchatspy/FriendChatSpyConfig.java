@@ -41,4 +41,92 @@ public interface FriendChatSpyConfig extends Config {
     default String webhook() {
         return "";
     }
+
+    @ConfigItem(
+            keyName = "onlywhitelisted",
+            name = "only whitelisted messages",
+            description = "if true only send messages with whitelisted words to discord.",
+            position = 1,
+            secret = false
+    )
+    default boolean onlySendWhitelistedMessages() {
+        return false;
+    }
+
+    @ConfigItem(
+            keyName = "whitelistedwords",
+            name = "whitelisted words",
+            description = "put the whitelisted words in here separated with commas",
+            position = 2,
+            secret = false
+    )
+    default String whiteListedWords() {
+        return "";
+    }
+
+    @ConfigItem(
+            keyName = "hoptoworld",
+            name = "Hop to the callers world",
+            description = "if true the account will hop to the world of the message sender.",
+            position = 3,
+            secret = false
+    )
+    default boolean hopToWorld() {
+        return false;
+    }
+
+    @ConfigItem(
+            keyName = "hopbacktoworld",
+            name = "hop back to world",
+            description = "if true it will hop back to a certain world after hopping.",
+            position = 4,
+            secret = false
+    )
+    default boolean hopBackToWorld() {
+        return false;
+    }
+
+    @ConfigItem(
+            keyName = "hopbacktoworldnumber",
+            name = "hop back to world number",
+            description = "set the world to hop back to",
+            position = 5,
+            secret = false
+    )
+    default int hopBackWorldNumber() {
+        return 328;
+    }
+
+    @ConfigItem(
+            keyName = "hopbacktoworldticks",
+            name = "hop back to world ticks",
+            description = "how many ticks to wait before logging back",
+            position = 6,
+            secret = false
+    )
+    default int hopBackWorldWaitTicks() {
+        return 10;
+    }
+
+    @ConfigItem(
+            keyName = "onlyscoutonaccount",
+            name = "only scout on specific account",
+            description = "if true only scouts on a specific account",
+            position = 7,
+            secret = false
+    )
+    default boolean onlyscoutonaccount() {
+        return false;
+    }
+
+    @ConfigItem(
+            keyName = "onlyscoutaccountname",
+            name = "account name",
+            description = "put the account name of the scout in here",
+            position = 8,
+            secret = false
+    )
+    default String onlyscoutaccountname() {
+        return "";
+    }
 }
